@@ -16,6 +16,7 @@ public class CategoriaRepository {
 	private static final Logger log = Logger.getLogger(CategoriaRepository.class);
 
 	public List<Categoria> listar() throws Exception {
+		
 		log.info("call listar()");
 
 		Connection con = ConexionBD.obtenerConexion();
