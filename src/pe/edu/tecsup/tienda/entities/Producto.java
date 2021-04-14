@@ -1,6 +1,6 @@
 package pe.edu.tecsup.tienda.entities;
 
-public class Prodcuto {
+public class Producto {
 
 	private Integer id;
 	private Integer categorias_id;
