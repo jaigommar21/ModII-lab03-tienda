@@ -5,11 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%-- @include file="/WEB-INF/jsp/includes/head.jsp" --%>
+<%@include file="/WEB-INF/jsp/includes/head.jsp"%>
 </head>
-<body>
+<body>  
 
-	<%-- @include file="/WEB-INF/jsp/includes/navbar.jsp"--%>
+	<%@include file="/WEB-INF/jsp/includes/navbar.jsp"%>
 	<%
 		List<Producto> productos = (List<Producto>) request.getAttribute("productos");
 	%>
