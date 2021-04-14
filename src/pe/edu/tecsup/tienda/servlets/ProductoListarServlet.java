@@ -31,8 +31,11 @@ public class ProductoListarServlet extends HttpServlet {
 		
 		try {
 			List<Producto> productos = productoService.listar();
+			
 			request.setAttribute("productos", productos);
+						
 			request.getRequestDispatcher("/WEB-INF/jsp/producto/listar.jsp").forward(request, response);
+			
 		} catch (Exception e) {
 			log.error(e, e);
 			throw new ServletException(e.getMessage(), e);
