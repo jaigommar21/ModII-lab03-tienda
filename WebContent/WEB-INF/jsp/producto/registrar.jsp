@@ -20,9 +20,9 @@
 				<div class="card-header">Registro de Producto</div>
 				<div class="card-body">
 					<div class="form-group">
-						<label for="nombre">Nombre</label> <input type="text"
-							name="nombre" id="nombre" class="form-control" maxlength="100"
-							required>
+						<label for="nombre">Nombre</label> 
+							<input type="text" name="nombre" id="nombre" 
+								   class="form-control" maxlength="100" required>
 					</div>
 					<div class="form-group">
 						<label for="categorias_id">Categoría</label> <select

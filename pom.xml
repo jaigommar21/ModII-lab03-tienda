@@ -8,6 +8,13 @@
 	<packaging>war</packaging>
 	
 	<dependencies>
+
+		<!-- JSTL -->	
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 	
 		<!-- Driver for BBDD MySQL -->
 		<dependency>
