@@ -1,7 +1,11 @@
 <%@page import="pe.edu.tecsup.tienda.entities.Categoria"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +13,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/jsp/includes/navbar.jsp"%>
-	<%
-		List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias");
-	%>
+	
 	<div class="container-fluid pt-3">
 		<div class="display-4 mb-3">Mantenimiento de Productos</div>
 		<form action="<%=request.getContextPath()%>/ProductoRegistrarServlet"
@@ -29,13 +31,10 @@
 							name="categorias_id" id="categorias_id" class="form-control"
 							required>
 							<option value="" selected disabled>Seleccione un valor</option>
-							<%
-								for (Categoria categoria : categorias) {
-							%>
-							<option value="<%=categoria.getId()%>"><%=categoria.getNombre()%></option>
-							<%
-								} // end for 
-							%>
+	
+							<c:forEach items="${categorias}" var="categoria"> 
+								<option value="<c:out value="${categoria.id}"/>"> <c:out value="${categoria.nombre}"/></option> 
+							</c:forEach>
 						</select>
 					</div>
 					<div class="form-group">
