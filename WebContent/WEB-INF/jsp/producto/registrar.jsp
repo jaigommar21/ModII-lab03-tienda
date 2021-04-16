@@ -17,7 +17,7 @@
 	<div class="container-fluid pt-3">
 		<div class="display-4 mb-3">Mantenimiento de Productos</div>
 		<form action="<%=request.getContextPath()%>/ProductoRegistrarServlet"
-			method="post">
+			method="post" enctype="multipart/form-data">
 			<div class="card">
 				<div class="card-header">Registro de Producto</div>
 				<div class="card-body">
@@ -51,14 +51,17 @@
 						<label for="stock">Stock</label> <input type="number" name="stock"
 							id="stock" class="form-control" min="0">
 					</div>
-					<div class="form-group">
-						<label for="imagen">Imagen</label>
-						<div class="custom-file">
-							<input type="file" id="imagen" name="imagen"
-								class="custom-file-input" /> <label class="custom-file-label"
-								for="foto">Seleccionar archivo</label>
-						</div>
+					<div class="form-group"> 
+						<label for="imagen">Imagen</label> 
+						<div class="custom-file"> 
+							<input type="file" id="imagen" name="imagen" 
+								class="custom-file-input"/> 
+									<label class="custom-file-label" for="imagen">
+										Seleccionar archivo
+									</label> 
+						</div> 
 					</div>
+					
 					<div class="form-group">
 						<label for="descripcion">Descripción</label>
 						<textarea name="descripcion" id="descripcion"
