@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.services.ProductoService;
-
+  
 @WebServlet("/ProductoListarServlet")
 public class ProductoListarServlet extends HttpServlet {
 	

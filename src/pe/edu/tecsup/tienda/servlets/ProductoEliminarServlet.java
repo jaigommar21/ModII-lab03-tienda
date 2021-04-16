@@ -24,11 +24,19 @@ public class ProductoEliminarServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		log.info("Get ProductoEliminarServlet");
+		
 		try {
+		
 			Integer id = Integer.parseInt(request.getParameter("id"));
-			productoService.eliminar(id);
+			
+			productoService.eliminar(id); // Elimina
+			 
+			request.getSession().setAttribute("success", "Registro eliminado satisfactoriamente");			
+			
 			response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
+			
 		} catch (Exception e) {
 			log.error(e, e);
 			throw new ServletException(e.getMessage(), e);

@@ -17,7 +17,7 @@ import pe.edu.tecsup.tienda.entities.Categoria;
 import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.services.CategoriaService;
 import pe.edu.tecsup.tienda.services.ProductoService;
-
+ 
 @WebServlet("/ProductoRegistrarServlet")
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, 
@@ -84,8 +84,12 @@ public class ProductoRegistrarServlet extends HttpServlet {
 			Part part = request.getPart("imagen");
 			
 			if(part.getSubmittedFileName() != null) { 
+				
 				File filepath = new File(getServletContext().getRealPath("") 
 							+ File.separator + "files"); 
+				//File filepath = new File("D:" + File.separator + "files"); 
+			
+				
 				if (!filepath.exists()) 
 					filepath.mkdir(); 
 				
@@ -107,6 +111,10 @@ public class ProductoRegistrarServlet extends HttpServlet {
 			
 			// Graba en la BBDD
 			productoService.registrar(producto);
+			
+			
+			request.getSession().setAttribute("success", "Registro guardado satisfactoriamente");
+			
 			
 			// Redirecciona salida 
 			response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
