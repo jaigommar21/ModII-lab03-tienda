@@ -34,7 +34,7 @@
 							%>
 							<option value="<%=categoria.getId()%>"><%=categoria.getNombre()%></option>
 							<%
-								}
+								} // end for 
 							%>
 						</select>
 					</div>

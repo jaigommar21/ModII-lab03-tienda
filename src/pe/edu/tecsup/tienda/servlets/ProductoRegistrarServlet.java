@@ -27,6 +27,9 @@ public class ProductoRegistrarServlet extends HttpServlet {
 		this.categoriaService = new CategoriaService();
 	}
 
+	/**
+	 *  Invocacion realizada directamente por un HREF
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.info("Get ProductoRegistrarServlet");
@@ -40,15 +43,24 @@ public class ProductoRegistrarServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Invocacion realizada por un FORM con action = POST
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		log.info("Post ProductoRegistrarServlet");
+		
 		try {
+		
+			// Lee datos del request
 			String categorias_id = request.getParameter("categorias_id");
 			String nombre = request.getParameter("nombre");
 			String precio = request.getParameter("precio");
 			String stock = request.getParameter("stock");
 			String descripcion = request.getParameter("descripcion");
+			
+			// Tratamiento de los datos
 			Producto producto = new Producto();
 			producto.setCategorias_id(Integer.parseInt(categorias_id));
 			producto.setNombre(nombre);
@@ -56,8 +68,13 @@ public class ProductoRegistrarServlet extends HttpServlet {
 			producto.setStock(Integer.parseInt(stock));
 			producto.setDescripcion(descripcion);
 			log.info(producto);
+			
+			// Graba en la BBDD
 			productoService.registrar(producto);
+			
+			// Redirecciona salida 
 			response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
+			
 		} catch (Exception e) {
 			log.error(e, e);
 			throw new ServletException(e.getMessage(), e);
